@@ -16,8 +16,29 @@ form.addEventListener('submit',(e)=>{
             //console.log(err)
           })
 
-
+    // we are going to cloud so commented out this line
     //localStorage.setItem(obj.email,JSON.stringify(obj));
+
+    //DOMContentLoaded for GET operation else when refresh page everything is lost in browser
+    window.addEventListener("DOMContentLoaded",()=>{
+        axios.get("https://crudcrud.com/api/260287f38d41496da1c018f6f93dac20/appointmentData")
+        .then((response)=>{
+            console.log(response);
+            for(var i =0;i<response.data.length;i++){
+                document.body.innerHTML = document.body.innerHTML + `<li>${response.data[i]}</li>`
+            }
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    })
+
+    //display function
+    // function showUserOnScreen(user){
+    //     console.log(user);
+    //     parentNode = document.getElementById('users');
+    //     childHTML = `<li id=${user.email}>${user.name}-${user.email}`
+    // }
 
     //parent
     const ul = document.getElementById('users');
