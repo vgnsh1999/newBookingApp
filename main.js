@@ -10,7 +10,7 @@ form.addEventListener('submit',(e)=>{
           .then((response) =>{
             document.body.innerHTML = document.body.innerHTML + response.data;
             //console.log(response);
-          })
+          })  
           .catch((err)=>{
             document.body.innerHTML = document.body.innerHTML + "Something went wrong";
             //console.log(err)
